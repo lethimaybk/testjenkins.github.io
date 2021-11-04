@@ -13,14 +13,14 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building....'
+                echo 'Builded'
             }
         }
-        stage('Run') {
-            steps {
-                sh 'python3 testjenkins.py'
-            }
-        }
+        // stage('Run') {
+        //     steps {
+        //         sh 'python3 testjenkins.py'
+        //     }
+        // }
 
         stage('Test') {
             steps {
