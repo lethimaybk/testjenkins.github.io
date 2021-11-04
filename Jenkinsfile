@@ -2,14 +2,14 @@ pipeline {
     agent any
     
     stages {
-        // stage('Clone git') {
-        //     steps {
-        //         sh 'git clone https://github.com/lethimaybk/demojenkinsfile.github.io.git;\
-        //             git add .;\
-        //             git commit -m "modified";\
-        //             git push origin main'
-        //     }
-        // }
+        stage('Clone') {
+            steps {
+                sh 'git clone https://github.com/lethimaybk/testjenkins.github.io.git'
+                    // git add .;\
+                    // git commit -m "modified";\
+                    // git push origin main'
+            }
+        }
 
         stage('Build') {
             steps {
