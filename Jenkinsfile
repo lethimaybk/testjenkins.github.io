@@ -1,13 +1,16 @@
 pipeline {
     agent any
-    
+    environment {
+    BUILD_SCRIPTS_GIT="https://github.com/lethimaybk/testjenkins.github.io.git"
+    BUILD_SCRIPTS='mypipeline'
+    BUILD_HOME='/var/lib/jenkins/workspace'
+    }
     stages {
-        stage('Clone') {
-            steps {
-                sh 'git clone https://github.com/lethimaybk/testjenkins.github.io.git'
-                    // git add .;\
-                    // git commit -m "modified";\
-                    // git push origin main'
+        stage('Checkout: Code') {
+          steps {
+            sh "mkdir -p $WORKSPACE/repo;\
+                git clone $BUILD_SCRIPTS_GIT repo/$BUILD_SCRIPTS"
+            sh "chmod -R +x $WORKSPACE/repo/$BUILD_SCRIPTS"
             }
         }
 
@@ -16,11 +19,6 @@ pipeline {
                 echo 'Builded'
             }
         }
-        // stage('Run') {
-        //     steps {
-        //         sh 'python3 testjenkins.py'
-        //     }
-        // }
 
         stage('Test') {
             steps {
