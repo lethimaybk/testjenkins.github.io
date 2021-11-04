@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone git') {
             steps {
-                sh 'git clone https://github.com/lethimaybk/testjenkins.github.io.git;\
+                sh 'git clone https://github.com/lethimaybk/demojenkinsfile.github.io.git;\
                     git add .;\
                     git commit -m "modified";\
                     git push origin main'
@@ -24,13 +24,13 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo 'Testing....'
+                echo 'Tested'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deployed'
             }
         }
     }
