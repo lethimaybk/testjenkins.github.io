@@ -1,14 +1,13 @@
 pipeline {
     agent any
-    enviroment {
+    environment {
         BUILD_SCRIPTS_GIT="https://github.com/lethimaybk/testjenkins.github.io.git"
-        BUILD_SCRIPT="mypipeline"
+
     }
     stages {
         stage('Clone git') {
             steps {
-                sh 'mkdir -p $WORKSPACE/repo;\
-                    git clone $BUILD_SCRIPTS_GIT repo/$BUILD_SCRIPT;\
+                sh 'git clone $BUILD_SCRIPTS_GIT;\
                     git add .;\
                     git commit -m "modified";\
                     git push origin main'
