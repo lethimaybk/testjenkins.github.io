@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Build tu dong duoc roi ne '
+                echo 'Build tu dong duoc chua '
             }
         }
 
